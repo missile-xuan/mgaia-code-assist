@@ -87,6 +87,10 @@ function checkTs (word: string): null | string {
   const result = word.match(reg)
   if (result === null) return null
   let props = result[0].substring(result[0].indexOf('{') + 1, result[0].length)
+  // 清理单行注释
+  const propsArray = props.split('\n')
+  for ()
+
   props = props.substring(0, props.lastIndexOf('}'))
   props.trim()
   while (props[0] === '\n') {

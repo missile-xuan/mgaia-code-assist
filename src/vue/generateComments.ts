@@ -105,7 +105,7 @@ function buildNote (nowNote: string, props: null | string[], emits: null | strin
   for (const key in newNoteObj) {
     note += `${key}\n`
     for (const key2 in newNoteObj[key]) {
-      note += `  ${key2}:${newNoteObj[key][key2]}\n`
+      note += `  ${key2}: ${newNoteObj[key][key2]}\n`
     }
   }
   note += '-->'

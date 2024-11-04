@@ -2,7 +2,11 @@
   "name": "mgaia-code-assist",
   "displayName": "mgaia-code-assist",
   "description": "提供系列代码辅助功能",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/missile-xuan/mgaia-code-assist"
+  },
   "engines": {
     "vscode": "^1.94.0"
   },

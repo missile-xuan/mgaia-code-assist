@@ -42,6 +42,11 @@ export default async function hoverProvider (document: vscode.TextDocument, posi
   const returnText = existingNote[0].substring(existingNote[0].indexOf('\n'), existingNote[0].lastIndexOf('\n')).trim()
   const markdownString = new vscode.MarkdownString()
   returnText.split('\n').forEach((item, index) => {
+    if (item[0] !== ' ') {
+      item = '#### ' + item
+    } else {
+      item = '* ' + item
+    }
     markdownString.appendMarkdown(item + '  \n')
   })
   return markdownString

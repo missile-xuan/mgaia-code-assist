@@ -26,7 +26,7 @@ export default vscode.commands.registerCommand(
     const emits: null | string[] = analysisEmits(word)
 
     // 提取现有注释 如果存在 采用补充模式
-    const existingNote = word.match(/<!--[\s\S]*?-->/s)
+    const existingNote = word.match(/^<!--[\s\S]*?-->/s)
     const nowNote = existingNote !== null ? existingNote[0] : ''
     const note = buildNote(nowNote, props, emits)
 

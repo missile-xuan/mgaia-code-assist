@@ -37,7 +37,7 @@ export default function analysisProps (word: string): string[] | null {
  * @param props
  */
 function checkTs (word: string): null | string[] {
-  const reg = /<.*>/s
+  const reg = /defineProps<.*>/s
   const result = word.match(reg)
   if (result === null) return null
   const props = result[0].substring(result[0].indexOf('{') + 1, result[0].lastIndexOf('}'))

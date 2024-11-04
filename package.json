@@ -2,14 +2,16 @@
   "name": "mgaia-code-assist",
   "displayName": "mgaia-code-assist",
   "description": "提供系列代码辅助功能",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.94.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:vue"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -21,7 +23,15 @@
         "command": "mgaia-code-assist.generateComments",
         "title": "vue 生成注释"
       }
-    ]
+    ],
+    "languages": [
+			{
+				"id": "vue",
+				"extensions": [
+					".vue"
+				],
+				"configuration": "./src/languages/vue-language-configuration.json"
+			}]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

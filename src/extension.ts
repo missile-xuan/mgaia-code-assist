@@ -5,6 +5,7 @@
 // 导入模块，并在下面的代码中使用别名vscode引用它
 import * as vscode from 'vscode'
 import generateComments from './vue/generateComments'
+import hoverProvider from './vue/hoverProvider'
 
 // This method is called when your extension is activated
 // //当您的扩展被激活时，会调用此方法
@@ -39,6 +40,14 @@ export function activate (context: vscode.ExtensionContext): void {
   )
   context.subscriptions.push(disposable)
   context.subscriptions.push(generateComments)
+
+  vscode.languages.registerHoverProvider('vue', {
+    async provideHover (document, position, token) {
+      const returnValue = await hoverProvider(document, position)
+      if (returnValue === undefined) return undefined
+      return new vscode.Hover(returnValue)
+    }
+  })
 }
 
 // This method is called when your extension is deactivated
